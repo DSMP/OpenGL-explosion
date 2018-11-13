@@ -13,6 +13,8 @@ int b = 0;
 bool growing = true;
 double angle = 0;
 double c = 141.4213562373095;
+int maxDistance = 30;
+int rotation = 10;
 
 void Triangle(int a) {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -74,8 +76,6 @@ void MiddleCircle(int a)
 		{
 			glColor4f(1.0f, 0.0f, 0.0f, 1.0f);//Red;
 			glPushMatrix();
-			//glPushMatrix();
-			//glTranslatef(aSmall, aSmall, 0);
 			double y = RatioFunc(100);
 			if (j == 0)
 			{
@@ -163,14 +163,14 @@ void Growing()
 	{
 		growing = true;
 	}
-	if (b >= 30)
+	if (b >= maxDistance)
 	{
 		growing = false;
 	}
 }
 void Rotation()
 {
-	angle += 10;
+	angle += rotation;
 }
 
 void MyDisplay(void) {
