@@ -15,6 +15,9 @@ double angle = 0;
 double c = 141.4213562373095;
 int maxDistance = 30;
 int rotation = 10;
+double innerRatio = 2;
+double middleRatio = -3;
+double externRatio = 1;
 
 void Triangle(int a) {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -83,7 +86,7 @@ void MiddleCircle(int a)
 			}
 			else
 			{
-				glTranslatef(b*y, b , 0);
+				glTranslatef(b*y, b, 0);
 			}
 			double centerLength = CalcTriangleCenter();
 			glTranslatef(centerLength, centerLength, 0);
@@ -117,7 +120,7 @@ void ExternCircle(int a)
 			}
 			if (j == 1)
 			{
-				double y = RatioFunc(100*sqrt(2));
+				double y = RatioFunc(100 * sqrt(2));
 				glTranslatef(b*y, b*y, 0);
 			}
 			if (j == 2)
@@ -142,9 +145,9 @@ void render(int a)
 {
 	Growing();
 	Rotation();
-	InnerCircle(a*2);
-	MiddleCircle(a*(-3));
-	ExternCircle(a);
+	InnerCircle(a*innerRatio);
+	MiddleCircle(a*middleRatio);
+	ExternCircle(a*externRatio);
 	glutPostRedisplay();
 	glutTimerFunc(25, render, ++a);
 }
