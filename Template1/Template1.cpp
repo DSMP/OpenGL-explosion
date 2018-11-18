@@ -15,6 +15,7 @@ double angle = 0;
 double c = 141.4213562373095;
 int maxDistance = 30;
 int rotation = 10;
+//Rotate
 double innerRatio = 2;
 double middleRatio = -3;
 double externRatio = 1;
@@ -52,7 +53,7 @@ double RatioFunc(double offsetFromMiddle)
 void InnerCircle(int a)
 {
 	glPushMatrix();
-	//glRotatef(a, 0, 0, 1);
+	glRotatef(a, 0, 0, 1);
 	for (size_t i = 0; i < 4; i++)
 	{
 		double centerLength = CalcTriangleCenter();
