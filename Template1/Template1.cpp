@@ -12,7 +12,7 @@
 int b = 0;
 bool growing = true;
 double angle = 0;
-double c = 141.4213562373095;
+const double c = 141.4213562373095;
 int maxDistance = 30;
 int rotation = 10;
 //Rotate
