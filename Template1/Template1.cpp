@@ -14,11 +14,15 @@ bool growing = true;
 double angle = 0;
 const double c = 141.4213562373095;
 int maxDistance = 30;
-int rotation = 10;
-//Rotate
+int rotation = 0;
+//Rotate circle 
 double innerRatio = 2;
 double middleRatio = -3;
 double externRatio = 1;
+// rotate traingle
+double rotI = 1;
+double rotM = -1;
+double rotE = 1;
 
 void Triangle(int a) {
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
@@ -61,7 +65,7 @@ void InnerCircle(int a)
 		glPushMatrix();
 		glTranslatef(b, b, 0);
 		glTranslatef(centerLength, centerLength, 0);
-		glRotatef(angle, 0, 0, 1);
+		glRotatef(rotI * angle, 0, 0, 1);
 		glTranslatef(-centerLength, -centerLength, 0);
 		Triangle(1);
 		glPopMatrix();
@@ -91,7 +95,7 @@ void MiddleCircle(int a)
 			}
 			double centerLength = CalcTriangleCenter();
 			glTranslatef(centerLength, centerLength, 0);
-			glRotatef(angle, 0, 0, 1);
+			glRotatef(rotM * angle, 0, 0, 1);
 			glTranslatef(-centerLength, -centerLength, 0);
 			Triangle(1);
 			glPopMatrix();
@@ -131,7 +135,7 @@ void ExternCircle(int a)
 			glColor4f(0.0f, 1.0f, 0.0f, 1.0f);//Green;
 			double centerLength = CalcTriangleCenter();
 			glTranslatef(centerLength, centerLength, 0);
-			glRotatef(angle, 0, 0, 1);
+			glRotatef(rotE * angle, 0, 0, 1);
 			glTranslatef(-centerLength, -centerLength, 0);
 			Triangle(1);
 			glPopMatrix();
